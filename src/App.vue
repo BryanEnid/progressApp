@@ -1,11 +1,12 @@
 <template>
   <div id="app">
-    <img src="https://lh3.googleusercontent.com/wlWGrD9xRLVXuniUwAa0nzncN0dLarnjbY9ecF_WUrlvr8YkSnfLFX4gvSYYNI7gc8-V-SjrmV5alSUBmnZtvu7OmrmvSES3puuY2CZLUeIuQASIiwYhhP9iBUS1BA9UrGXI97uYOV1eT3TH67FES3xrGMtDPLw-XRKwQAAkOwdGTIGYZsCO-JGnFftO8dq6glBomW1fiz5agEg00tESujZ97ItMJorCjBvCcvhVmHfN3bT0pga-xWM6GDifHcStd73PVqzndVMjDArElhHFTEbYq6_p89qJZKnoqZ0u5cXz9rdadEE-og9RW1yIV0qfH-Xf2Vsw5erBHnxlJt3AyHEBGFOiZzasCDrVzN8D5ljnixi5aF6ogu8QqGN-PvLCqF3Zaeq5JRQo6TXs1-u24EHZ_xdrG_eUe3x21vTE9OGXovHJQjj38rSY37FmwTl2bzbW_1OoQeWnFu5U0dD3CZhTyMpVUZIA158HTm4EcW96VKnKRJs9E-nxDbLjW-6OMD7gXMDD_n9ZnDoULDpcvEqz5ebz0N4sLGZfQSiyeqV2g-FF4c7RslCOB_qNAeMs9mHcxtSPorQm0NiEkZaJNO7Qi-n76l0pxAHP_2I=s500-no" alt="progress" class="logo">
+    
+    <div v-if="!loader"><img src="https://lh3.googleusercontent.com/wlWGrD9xRLVXuniUwAa0nzncN0dLarnjbY9ecF_WUrlvr8YkSnfLFX4gvSYYNI7gc8-V-SjrmV5alSUBmnZtvu7OmrmvSES3puuY2CZLUeIuQASIiwYhhP9iBUS1BA9UrGXI97uYOV1eT3TH67FES3xrGMtDPLw-XRKwQAAkOwdGTIGYZsCO-JGnFftO8dq6glBomW1fiz5agEg00tESujZ97ItMJorCjBvCcvhVmHfN3bT0pga-xWM6GDifHcStd73PVqzndVMjDArElhHFTEbYq6_p89qJZKnoqZ0u5cXz9rdadEE-og9RW1yIV0qfH-Xf2Vsw5erBHnxlJt3AyHEBGFOiZzasCDrVzN8D5ljnixi5aF6ogu8QqGN-PvLCqF3Zaeq5JRQo6TXs1-u24EHZ_xdrG_eUe3x21vTE9OGXovHJQjj38rSY37FmwTl2bzbW_1OoQeWnFu5U0dD3CZhTyMpVUZIA158HTm4EcW96VKnKRJs9E-nxDbLjW-6OMD7gXMDD_n9ZnDoULDpcvEqz5ebz0N4sLGZfQSiyeqV2g-FF4c7RslCOB_qNAeMs9mHcxtSPorQm0NiEkZaJNO7Qi-n76l0pxAHP_2I=s500-no" alt="progress" class="logo">
 
     <div id="items">
       <div id="total">
       <p>Total:</p>
-      <p>{{ total() }} /monthly</p>
+      <p>{{ total() }}</p>
     </div>
 
     <!-- Done** Boxes of expenses located in Server -->
@@ -39,7 +40,13 @@
     
       
 
-<div class="backgroundW" v-if="loader"></div>
+
+    
+
+    <center><a href="https://github.com/BryanEnid/progressApp">See this app repository</a> </center></div>
+
+    
+    <div class="backgroundW" v-if="loader"></div>
       <fulfilling-bouncing-circle-spinner
       :animation-duration="4000"
       :size="60"
@@ -47,9 +54,6 @@
       id="loader"
       v-if="loader"
       />
-    
-
-    <center><a href="https://github.com/BryanEnid/progressApp">See this app repository</a> </center>
     
   </div>
 </template>
@@ -294,7 +298,7 @@ button:checked {
   height: auto;
   margin-top: 7px;
   color: white;
-  background: transparent;
+  background: #444;
 }
 
 /*Expenses listed from server & Total*/
@@ -383,10 +387,14 @@ textarea {
 input[type="date"] {
   display: block;
   height: 40px;
-  width: 30%;
+  width: 100%;
   padding: 8px;
   border: 1px solid #888;
   border-radius: 3px;
   margin-bottom: 30px;
+}
+
+button {
+  -webkit-appearance: none;
 }
 </style>
