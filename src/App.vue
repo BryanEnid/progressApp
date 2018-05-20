@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png" alt="progress" class="logo">
+    <img src="https://lh3.googleusercontent.com/wlWGrD9xRLVXuniUwAa0nzncN0dLarnjbY9ecF_WUrlvr8YkSnfLFX4gvSYYNI7gc8-V-SjrmV5alSUBmnZtvu7OmrmvSES3puuY2CZLUeIuQASIiwYhhP9iBUS1BA9UrGXI97uYOV1eT3TH67FES3xrGMtDPLw-XRKwQAAkOwdGTIGYZsCO-JGnFftO8dq6glBomW1fiz5agEg00tESujZ97ItMJorCjBvCcvhVmHfN3bT0pga-xWM6GDifHcStd73PVqzndVMjDArElhHFTEbYq6_p89qJZKnoqZ0u5cXz9rdadEE-og9RW1yIV0qfH-Xf2Vsw5erBHnxlJt3AyHEBGFOiZzasCDrVzN8D5ljnixi5aF6ogu8QqGN-PvLCqF3Zaeq5JRQo6TXs1-u24EHZ_xdrG_eUe3x21vTE9OGXovHJQjj38rSY37FmwTl2bzbW_1OoQeWnFu5U0dD3CZhTyMpVUZIA158HTm4EcW96VKnKRJs9E-nxDbLjW-6OMD7gXMDD_n9ZnDoULDpcvEqz5ebz0N4sLGZfQSiyeqV2g-FF4c7RslCOB_qNAeMs9mHcxtSPorQm0NiEkZaJNO7Qi-n76l0pxAHP_2I=s500-no" alt="progress" class="logo">
 
     <div id="items">
       <div id="total">
@@ -264,6 +264,8 @@ label {
   width: 100%;
   height: 50px;
   margin-top: 40px;
+  background: white;
+  color: black;
 }
 button:active,
 button:checked {
@@ -274,11 +276,15 @@ button:checked {
   border: 1px solid #f76c6c;
   box-shadow: 0px 0px 10px #f76c6c;
   margin-right: 10px;
+  background: white;
+  color: black;
 }
 
 .buttonSubmit {
   border: 1px solid #4ed85b;
   box-shadow: 0px 0px 10px #00a99e;
+  background: white;
+  color: black;
 }
 
 .deleteButton {
@@ -289,14 +295,6 @@ button:checked {
   margin-top: 7px;
   color: white;
   background: transparent;
-}
-.editButton {
-  width: auto;
-  border: none;
-  float: right;
-  height: auto;
-  margin-top: 20px;
-  border: 1px solid #999;
 }
 
 /*Expenses listed from server & Total*/
