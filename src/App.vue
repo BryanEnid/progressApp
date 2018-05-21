@@ -38,11 +38,11 @@
 
     <b-modal id="editForm" class="form" title="Edit" hide-footer no-close-on-backdrop hide-header-close>
       <form id="add-blog">
-        Name:<input type="text" placeholder="Expense name or Company" ref="input" v-model="newExpense.name" maxlength="50">
-        Type:<input type="text" placeholder="Monthly recurring, loan, credit, etc..." ref="input" v-model="newExpense.type" maxlength="20">
-        Amount: <input type="number" placeholder="$0.00" ref="amount" v-model="newExpense.amount">
-        Date: <input type="date" placeholder="Due Date" ref="due" v-model="newExpense.due" v-bind:min="actualDate()">
-        <span v-if="newExpense.name != '' && newExpense.type != '' && newExpense.due != '' && newExpense.amount != ''">
+        Name:<input type="text" placeholder="Expense name or Company" ref="input" v-model="editExpense.name" maxlength="50">
+        Type:<input type="text" placeholder="Monthly recurring, loan, credit, etc..." ref="input" v-model="editExpense.type" maxlength="20">
+        Amount: <input type="number" placeholder="$0.00" ref="amount" v-model="editExpense.amount">
+        Date: <input type="date" placeholder="Due Date" ref="due" v-model="editExpense.due" v-bind:min="actualDate()">
+        <span v-if="editExpense.name != '' && editExpense.type != '' && editExpense.due != '' && editExpense.amount != ''">
           <button v-on:click.prevent="submitEditF()" class="buttonSubmit">Submit</button>
         </span>
         <button v-on:click.prevent="cancelF('editForm')" class="buttonCancel">Cancel</button>
@@ -130,7 +130,6 @@ export default {
       },
       key: '',
       edit: false,
-      addexpense: true,
       loader: true,
       actualDate() {
         let today = new Date();
@@ -181,7 +180,6 @@ export default {
         this.newExpense.type = "";
         this.newExpense.amount = "";
         this.newExpense.due = "";
-        this.addexpense = true;
         this.$root.$emit('bv::hide::modal','addForm')
       }
     },
@@ -189,18 +187,18 @@ export default {
       Toastr.remove();
       let error = false;
       let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-      if (this.newExpense.amount < 1) {
+      if (this.editExpense.amount < 1) {
         Toastr.error("Your amount should be more than 0");
         error = true;
       }
-      for (let letter of this.newExpense.name) {
+      for (let letter of this.editExpense.name) {
         if (numbers.includes(letter)) {
           Toastr.error("The name of the company should'nt contain numbers");
           error = true;
           break;
         }
       }
-      for (let letter of this.newExpense.type) {
+      for (let letter of this.editExpense.type) {
         if (numbers.includes(letter)) {
           Toastr.error("The type should'nt contain numbers");
           error = true;
@@ -208,13 +206,19 @@ export default {
         }
       }
       if (error == false) {
-        expensesRef.push(this.newExpense);
-        Toastr.success("You added a new expense...");
-        this.newExpense.name = "";
-        this.newExpense.type = "";
-        this.newExpense.amount = "";
-        this.newExpense.due = "";
-        this.addexpense = true;
+        console.log(this.key)
+        expensesRef.child(this.key).set({
+          name: this.editExpense.name,
+          type: this.editExpense.type,
+          amount: this.editExpense.amount,
+          due: this.editExpense.due
+        });
+        this.key = "";
+        Toastr.success("It was succesfully updated!");
+        this.editExpense.name = "";
+        this.editExpense.type = "";
+        this.editExpense.amount = "";
+        this.editExpense.due = "";
         this.$root.$emit('bv::hide::modal','editForm')
       }
     },
@@ -231,7 +235,12 @@ export default {
     },
     editExpenseF(expense) {
       this.$root.$emit("bv::show::modal","editForm")
-      /*Toastr.success("Edit succesfully");*/
+      this.key = expense['.key']
+      this.editExpense.name = expense.name;
+      this.editExpense.type = expense.type;
+      this.editExpense.due = expense.due;
+      this.editExpense.amount = expense.amount;
+      this.editExpense.name = expense.name;
     },
     total() {
       let total = 0;
