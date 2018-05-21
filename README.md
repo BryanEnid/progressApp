@@ -1,18 +1,6 @@
 # progress-app
+The app code it is located inside src folder called app.vue
 
-> CRUD with Vue and Firebase
+> Demo: [Progress App](https://progress.bryanenid.net/ "Progress App ")
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![screen shot 2018-05-20 at 1 43 56 am](https://user-images.githubusercontent.com/30734480/40276112-54fc6142-5bcf-11e8-992a-75008d8626ab.png)
