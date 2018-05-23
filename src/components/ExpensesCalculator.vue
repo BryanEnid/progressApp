@@ -553,9 +553,8 @@ button:checked {
 }
 
 .typeSelect {
-  appearance: none;
   background: none; 
-  color: #999;
+  color: black;
   text-align-last: right;
 }
 
@@ -563,7 +562,6 @@ button:checked {
 @media all and (-webkit-min-device-pixel-ratio:0) {
   .typeSelect {
     text-align-last: left;
-    color: #999;
   }
   .fa-angle-double-right {
     display: none;
