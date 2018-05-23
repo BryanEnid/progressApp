@@ -26,7 +26,7 @@
     <b-modal id="addForm" class="formExpenses" title="Add Expense" @keydown.enter.prevent="submitF()"  hide-footer no-close-on-backdrop no-close-on-esc hide-header-close centered lazy @ok="submitF" @cancel="cancelF('addForm')">
       <form id="add-blog" >
         <span class="rel"><i class="far fa-building fa-inputform"></i>Name:<input @keydown.enter.prevent="submitF()" type="text" placeholder="Expense name or Company" ref="input" v-model="newExpense.name" maxlength="50"></span>
-        <span class="rel"><i class="fas fa-angle-double-right fa-inputform"></i>Type:<select name="type" v-model="newExpense.type" v-bind:class="typeSelect"><option value="" disabled>Please select the expense type</option><option v-for="type in typeExpenses" :key="type">{{ type }}</option></select></span>
+        <span class="rel"><i class="fas fa-angle-double-right fa-inputform"></i>Type:<select name="type" v-model="newExpense.type" class="typeSelect"><option value="" disabled>Please select the expense type</option><option v-for="type in typeExpenses" :key="type">{{ type }}</option></select></span>
         <span class="rel"><i class="fas fa-credit-card fa-inputform"></i>Amount:<input @keydown.enter.prevent="submitF()" type="number" placeholder="$0.00" ref="amount" v-model="newExpense.amount"></span>
         <span class="rel"><i class="far fa-calendar-alt fa-inputform"></i>Date:<input @keydown.enter.prevent="submitF()" type="date" placeholder="Due Date" ref="due" v-model="newExpense.due" v-bind:min="actualDate()"></span>
         
